@@ -1,0 +1,1937 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../setup/">
+      
+      
+        <link rel="next" href="../testing/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/favicon-48x48.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Deployment - AI Engineering Maintenance Bot</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="vector" data-md-color-accent="vector-teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#deployment-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="AI Engineering Maintenance Bot" class="md-header__button md-logo" aria-label="AI Engineering Maintenance Bot" data-md-component="logo">
+      
+<img src="../assets/vector-logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AI Engineering Maintenance Bot
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Deployment
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="vector" data-md-color-accent="vector-teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="vector-teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/VectorInstitute/aieng-bot-maintain" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    VectorInstitute/aieng-bot-maintain
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../setup/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Setup
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Deployment
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../testing/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Testing
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AI Engineering Maintenance Bot" class="md-nav__button md-logo" aria-label="AI Engineering Maintenance Bot" data-md-component="logo">
+      
+<img src="../assets/vector-logo.svg" alt="logo">
+
+    </a>
+    AI Engineering Maintenance Bot
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/VectorInstitute/aieng-bot-maintain" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    VectorInstitute/aieng-bot-maintain
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment Checklist
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment Checklist">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-1-initial-setup-30-minutes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1: Initial Setup (30 minutes)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-2-testing-1-2-hours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2: Testing (1-2 hours)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-3-limited-monitoring-week-1-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 3: Limited Monitoring (Week 1-2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-4-full-production-week-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 4: Full Production (Week 3+)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Deployment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-happens-after-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Happens After Deployment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What Happens After Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#first-6-hours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        First 6 Hours
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#first-day" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        First Day
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#first-week" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        First Week
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-after-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoring After Deployment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring After Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#daily-checks-first-2-weeks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Daily Checks (First 2 Weeks)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weekly-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Weekly Review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-post-deployment-adjustments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Post-Deployment Adjustments
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Post-Deployment Adjustments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adjust-scan-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adjust Scan Frequency
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exclude-specific-repositories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exclude Specific Repositories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adjust-fix-aggressiveness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adjust Fix Aggressiveness
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fine-tune-merge-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fine-Tune Merge Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rollback-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rollback Plan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rollback Plan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#immediate-disable-30-seconds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Immediate Disable (30 seconds)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#investigation-while-disabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Investigation (While Disabled)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fix-and-re-enable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fix and Re-enable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-rollback-if-needed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full Rollback (If Needed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-estimation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cost Estimation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cost Estimation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gemini-api-costs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gemini API Costs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-api-costs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub API Costs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#team-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Team Communication
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Team Communication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#announcement-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Announcement Template
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#long-term-maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Long-Term Maintenance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Long-Term Maintenance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#monthly-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monthly Tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quarterly-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quarterly Tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#annual-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Annual Tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scaling-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scaling Considerations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scaling Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-capacity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current Capacity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-scaling-needed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        If Scaling Needed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support-and-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Support and Updates
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Support and Updates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getting-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contributing-improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contributing Improvements
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment Checklist
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment Checklist">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-1-initial-setup-30-minutes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1: Initial Setup (30 minutes)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-2-testing-1-2-hours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2: Testing (1-2 hours)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-3-limited-monitoring-week-1-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 3: Limited Monitoring (Week 1-2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-4-full-production-week-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 4: Full Production (Week 3+)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Deployment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-happens-after-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Happens After Deployment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What Happens After Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#first-6-hours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        First 6 Hours
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#first-day" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        First Day
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#first-week" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        First Week
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-after-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoring After Deployment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring After Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#daily-checks-first-2-weeks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Daily Checks (First 2 Weeks)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weekly-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Weekly Review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-post-deployment-adjustments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Post-Deployment Adjustments
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Post-Deployment Adjustments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adjust-scan-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adjust Scan Frequency
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exclude-specific-repositories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exclude Specific Repositories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adjust-fix-aggressiveness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adjust Fix Aggressiveness
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fine-tune-merge-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fine-Tune Merge Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rollback-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rollback Plan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rollback Plan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#immediate-disable-30-seconds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Immediate Disable (30 seconds)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#investigation-while-disabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Investigation (While Disabled)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fix-and-re-enable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fix and Re-enable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-rollback-if-needed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full Rollback (If Needed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-estimation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cost Estimation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cost Estimation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gemini-api-costs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gemini API Costs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-api-costs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub API Costs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#team-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Team Communication
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Team Communication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#announcement-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Announcement Template
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#long-term-maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Long-Term Maintenance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Long-Term Maintenance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#monthly-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monthly Tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quarterly-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quarterly Tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#annual-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Annual Tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scaling-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scaling Considerations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scaling Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-capacity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current Capacity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-scaling-needed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        If Scaling Needed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support-and-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Support and Updates
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Support and Updates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getting-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contributing-improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contributing Improvements
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="deployment-guide">Deployment Guide<a class="headerlink" href="#deployment-guide" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Deploying the AI Engineering Maintenance Bot is simple - it runs from ONE central repository and requires NO installation in individual repositories.</p>
+<h2 id="deployment-checklist">Deployment Checklist<a class="headerlink" href="#deployment-checklist" title="Permanent link">&para;</a></h2>
+<h3 id="phase-1-initial-setup-30-minutes">Phase 1: Initial Setup (30 minutes)<a class="headerlink" href="#phase-1-initial-setup-30-minutes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] <strong>1.1</strong>: Create Gemini API key</li>
+<li>[ ] <strong>1.2</strong>: Create GitHub PAT with org-wide access</li>
+<li>[ ] <strong>1.3</strong>: Add secrets to this repository</li>
+<li><code>GEMINI_API_KEY</code></li>
+<li><code>ORG_ACCESS_TOKEN</code></li>
+<li>[ ] <strong>1.4</strong>: Enable GitHub Actions</li>
+<li>[ ] <strong>1.5</strong>: Verify workflows appear in Actions tab</li>
+</ul>
+<h3 id="phase-2-testing-1-2-hours">Phase 2: Testing (1-2 hours)<a class="headerlink" href="#phase-2-testing-1-2-hours" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] <strong>2.1</strong>: Manual test run of monitor workflow
+  <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>gh<span class="w"> </span>workflow<span class="w"> </span>run<span class="w"> </span>monitor-org-dependabot.yml<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span>--repo<span class="w"> </span>VectorInstitute/aieng-bot-maintain
+</span></code></pre></div></li>
+<li>[ ] <strong>2.2</strong>: Test fix workflow on specific PR
+  <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>gh<span class="w"> </span>workflow<span class="w"> </span>run<span class="w"> </span>fix-remote-pr.yml<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>--repo<span class="w"> </span>VectorInstitute/aieng-bot-maintain<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span>--field<span class="w"> </span><span class="nv">target_repo</span><span class="o">=</span><span class="s2">&quot;VectorInstitute/aieng-template-mvp&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span>--field<span class="w"> </span><span class="nv">pr_number</span><span class="o">=</span><span class="s2">&quot;17&quot;</span>
+</span></code></pre></div></li>
+<li>[ ] <strong>2.3</strong>: Verify bot comments appear on test PR</li>
+<li>[ ] <strong>2.4</strong>: Check workflow logs for errors</li>
+<li>[ ] <strong>2.5</strong>: Confirm bot can access org repos</li>
+</ul>
+<h3 id="phase-3-limited-monitoring-week-1-2">Phase 3: Limited Monitoring (Week 1-2)<a class="headerlink" href="#phase-3-limited-monitoring-week-1-2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] <strong>3.1</strong>: Enable scheduled runs (automatic every 6 hours)</li>
+<li>[ ] <strong>3.2</strong>: Monitor for 2-3 days</li>
+<li>[ ] <strong>3.3</strong>: Check PRs the bot processes</li>
+<li>[ ] <strong>3.4</strong>: Verify auto-merge works correctly</li>
+<li>[ ] <strong>3.5</strong>: Review any fixes the bot applies</li>
+<li>[ ] <strong>3.6</strong>: Adjust prompt templates if needed</li>
+</ul>
+<h3 id="phase-4-full-production-week-3">Phase 4: Full Production (Week 3+)<a class="headerlink" href="#phase-4-full-production-week-3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] <strong>4.1</strong>: Confirm bot stability</li>
+<li>[ ] <strong>4.2</strong>: Enable auto-merge in more repos</li>
+<li>[ ] <strong>4.3</strong>: Announce to VectorInstitute team</li>
+<li>[ ] <strong>4.4</strong>: Document any customizations made</li>
+<li>[ ] <strong>4.5</strong>: Set up monitoring dashboard</li>
+</ul>
+<h2 id="quick-deployment">Quick Deployment<a class="headerlink" href="#quick-deployment" title="Permanent link">&para;</a></h2>
+<p>For experienced admins who just want to get it running:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># 1. Add secrets via GitHub UI</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1"># Settings → Secrets → Actions → New secret</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># - GEMINI_API_KEY</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># - ORG_ACCESS_TOKEN</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1"># 2. Enable workflows</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Actions tab → Enable workflows</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1"># 3. Test</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>gh<span class="w"> </span>workflow<span class="w"> </span>run<span class="w"> </span>monitor-org-dependabot.yml<span class="w"> </span>--repo<span class="w"> </span>VectorInstitute/aieng-bot-maintain
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="c1"># 4. Monitor</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="c1"># Check Actions tab for runs every 6 hours</span>
+</span></code></pre></div>
+<h2 id="what-happens-after-deployment">What Happens After Deployment<a class="headerlink" href="#what-happens-after-deployment" title="Permanent link">&para;</a></h2>
+<h3 id="first-6-hours">First 6 Hours<a class="headerlink" href="#first-6-hours" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Monitor workflow runs automatically</li>
+<li>Scans all VectorInstitute repos</li>
+<li>Finds any open Dependabot PRs</li>
+<li>Processes passing PRs (auto-merge)</li>
+<li>Triggers fixes for failing PRs</li>
+<li>Bot comments appear on processed PRs</li>
+<li>Auto-merges happen for passing PRs</li>
+<li>Fix attempts made on failing PRs</li>
+</ul>
+<h3 id="first-day">First Day<a class="headerlink" href="#first-day" title="Permanent link">&para;</a></h3>
+<ul>
+<li>4 scan cycles (every 6 hours)</li>
+<li>All active Dependabot PRs processed</li>
+<li>Pattern of bot behavior visible</li>
+<li>Any issues surface quickly</li>
+</ul>
+<h3 id="first-week">First Week<a class="headerlink" href="#first-week" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Bot handles most Dependabot PRs automatically</li>
+<li>Team sees reduced manual PR review load</li>
+<li>Fix success rate becomes clear</li>
+<li>Prompt adjustments may be needed</li>
+</ul>
+<h2 id="monitoring-after-deployment">Monitoring After Deployment<a class="headerlink" href="#monitoring-after-deployment" title="Permanent link">&para;</a></h2>
+<h3 id="daily-checks-first-2-weeks">Daily Checks (First 2 Weeks)<a class="headerlink" href="#daily-checks-first-2-weeks" title="Permanent link">&para;</a></h3>
+<p>Monitor these metrics:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Check recent runs</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>gh<span class="w"> </span>run<span class="w"> </span>list<span class="w"> </span>--workflow<span class="o">=</span>monitor-org-dependabot.yml<span class="w"> </span>--limit<span class="w"> </span><span class="m">10</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Check for failures</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>gh<span class="w"> </span>run<span class="w"> </span>list<span class="w"> </span>--workflow<span class="o">=</span>monitor-org-dependabot.yml<span class="w"> </span>--status<span class="w"> </span>failure<span class="w"> </span>--limit<span class="w"> </span><span class="m">5</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># View specific run</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>gh<span class="w"> </span>run<span class="w"> </span>view<span class="w"> </span>RUN_ID<span class="w"> </span>--log
+</span></code></pre></div></p>
+<p>Track:
+- PRs found per run
+- PRs auto-merged
+- PRs fixed successfully
+- Any workflow failures
+- API errors or rate limits</p>
+<h3 id="weekly-review">Weekly Review<a class="headerlink" href="#weekly-review" title="Permanent link">&para;</a></h3>
+<p>Review bot activity:
+1. <strong>Actions tab</strong>: Check run success rate
+2. <strong>Across org repos</strong>: Find PRs with bot comments
+3. <strong>Merged PRs</strong>: Verify quality of auto-merged changes
+4. <strong>Fixed PRs</strong>: Check if fixes worked correctly
+5. <strong>Metrics</strong>: Count successes vs failures</p>
+<h3 id="success-metrics">Success Metrics<a class="headerlink" href="#success-metrics" title="Permanent link">&para;</a></h3>
+<p>Target metrics after 2 weeks:
+- ✅ Monitor workflow: 95%+ success rate
+- ✅ Auto-merge: 90%+ of passing PRs merged
+- ✅ Auto-fix: 50%+ of fixable issues resolved
+- ✅ False positives: 0 (no incorrect merges)
+- ✅ Team feedback: Positive</p>
+<h2 id="common-post-deployment-adjustments">Common Post-Deployment Adjustments<a class="headerlink" href="#common-post-deployment-adjustments" title="Permanent link">&para;</a></h2>
+<h3 id="adjust-scan-frequency">Adjust Scan Frequency<a class="headerlink" href="#adjust-scan-frequency" title="Permanent link">&para;</a></h3>
+<p>If you want more or less frequent scanning:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># .github/workflows/monitor-org-dependabot.yml</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nt">on</span><span class="p">:</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">schedule</span><span class="p">:</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cron</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;0</span><span class="nv"> </span><span class="s">*/12</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*&#39;</span><span class="w">  </span><span class="c1"># Every 12 hours (less frequent)</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="c1"># or</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cron</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;0</span><span class="nv"> </span><span class="s">*/3</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*&#39;</span><span class="w">   </span><span class="c1"># Every 3 hours (more frequent)</span>
+</span></code></pre></div>
+<h3 id="exclude-specific-repositories">Exclude Specific Repositories<a class="headerlink" href="#exclude-specific-repositories" title="Permanent link">&para;</a></h3>
+<p>If certain repos need manual review:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># In monitor-org-dependabot.yml, after getting REPOS</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nv">REPOS</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$REPOS</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;critical-production-repo&quot;</span><span class="k">)</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nv">REPOS</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$REPOS</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;experimental-repo&quot;</span><span class="k">)</span>
+</span></code></pre></div>
+<h3 id="adjust-fix-aggressiveness">Adjust Fix Aggressiveness<a class="headerlink" href="#adjust-fix-aggressiveness" title="Permanent link">&para;</a></h3>
+<p>If bot makes too many/few fix attempts:</p>
+<p>Edit <code>.github/prompts/</code> templates to be more/less aggressive in fixes.</p>
+<h3 id="fine-tune-merge-criteria">Fine-Tune Merge Criteria<a class="headerlink" href="#fine-tune-merge-criteria" title="Permanent link">&para;</a></h3>
+<p>If auto-merging incorrectly:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># In monitor-org-dependabot.yml, adjust check logic</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1"># Add filters for specific check names or PR titles</span>
+</span></code></pre></div>
+<h2 id="rollback-plan">Rollback Plan<a class="headerlink" href="#rollback-plan" title="Permanent link">&para;</a></h2>
+<p>If something goes wrong:</p>
+<h3 id="immediate-disable-30-seconds">Immediate Disable (30 seconds)<a class="headerlink" href="#immediate-disable-30-seconds" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Disable scheduled runs</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>gh<span class="w"> </span>workflow<span class="w"> </span>disable<span class="w"> </span>monitor-org-dependabot.yml<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span>--repo<span class="w"> </span>VectorInstitute/aieng-bot-maintain
+</span></code></pre></div>
+<p>Or via GitHub UI:
+1. Actions → Monitor Organization Dependabot PRs
+2. Click "..." → Disable workflow</p>
+<h3 id="investigation-while-disabled">Investigation (While Disabled)<a class="headerlink" href="#investigation-while-disabled" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Check recent workflow runs for errors</li>
+<li>Review PRs the bot touched recently</li>
+<li>Check for incorrect merges or fixes</li>
+<li>Identify the issue</li>
+</ol>
+<h3 id="fix-and-re-enable">Fix and Re-enable<a class="headerlink" href="#fix-and-re-enable" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Make necessary corrections (prompts, logic, secrets)</li>
+<li>Test manually first</li>
+<li>Re-enable workflow:
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>gh<span class="w"> </span>workflow<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>monitor-org-dependabot.yml
+</span></code></pre></div></li>
+</ol>
+<h3 id="full-rollback-if-needed">Full Rollback (If Needed)<a class="headerlink" href="#full-rollback-if-needed" title="Permanent link">&para;</a></h3>
+<p>The bot makes no permanent infrastructure changes:
+- Remove secrets from repository
+- Disable workflows
+- No cleanup needed in target repositories
+- Bot comments remain (harmless documentation)</p>
+<h2 id="cost-estimation">Cost Estimation<a class="headerlink" href="#cost-estimation" title="Permanent link">&para;</a></h2>
+<h3 id="gemini-api-costs">Gemini API Costs<a class="headerlink" href="#gemini-api-costs" title="Permanent link">&para;</a></h3>
+<p>Assuming:
+- 10 Dependabot PRs/day across org
+- 50% need fixes (5/day)
+- ~2000 tokens per fix request
+- Gemini 3 Pro: ~$0.001 per 1K tokens</p>
+<p><strong>Estimated cost</strong>: $0.01-0.05 per day = <strong>$0.30-1.50 per month</strong></p>
+<h3 id="github-api-costs">GitHub API Costs<a class="headerlink" href="#github-api-costs" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Organization scanning: Free (read operations)</li>
+<li>PR operations: Free (within rate limits)</li>
+<li>Actions minutes: Free for public repos, included in plan for private</li>
+</ul>
+<p><strong>Total estimated cost</strong>: <strong>&lt;$2/month</strong></p>
+<h2 id="team-communication">Team Communication<a class="headerlink" href="#team-communication" title="Permanent link">&para;</a></h2>
+<h3 id="announcement-template">Announcement Template<a class="headerlink" href="#announcement-template" title="Permanent link">&para;</a></h3>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="gu">## 🤖 New: AI Engineering Maintenance Bot</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>We&#39;ve deployed an automated bot to help manage Dependabot PRs across all VectorInstitute repositories.
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="gs">**What it does:**</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="k">-</span><span class="w"> </span>Automatically merges Dependabot PRs when all checks pass
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="k">-</span><span class="w"> </span>Attempts to fix common issues (linting, tests, security) in failing PRs
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="k">-</span><span class="w"> </span>Leaves comments on PRs it processes
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="gs">**What you need to do:**</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="k">-</span><span class="w"> </span>Nothing! The bot works automatically
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="k">-</span><span class="w"> </span>You can still manually review and merge if you prefer
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="k">-</span><span class="w"> </span>Report any issues to the AI Engineering team
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="gs">**More info:**</span> https://github.com/VectorInstitute/aieng-bot-maintain
+</span></code></pre></div>
+<p>Post in:
+- Organization Slack/Teams channel
+- Team meetings
+- Internal wiki/docs</p>
+<h2 id="long-term-maintenance">Long-Term Maintenance<a class="headerlink" href="#long-term-maintenance" title="Permanent link">&para;</a></h2>
+<h3 id="monthly-tasks">Monthly Tasks<a class="headerlink" href="#monthly-tasks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Review bot effectiveness</li>
+<li>Update prompts based on patterns</li>
+<li>Check API costs vs budget</li>
+<li>Rotate tokens if needed</li>
+</ul>
+<h3 id="quarterly-tasks">Quarterly Tasks<a class="headerlink" href="#quarterly-tasks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Analyze metrics and trends</li>
+<li>Consider feature enhancements</li>
+<li>Update to new Gemini models</li>
+<li>Review security and permissions</li>
+</ul>
+<h3 id="annual-tasks">Annual Tasks<a class="headerlink" href="#annual-tasks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Full security audit</li>
+<li>Architecture review</li>
+<li>Cost-benefit analysis</li>
+<li>Team satisfaction survey</li>
+</ul>
+<h2 id="scaling-considerations">Scaling Considerations<a class="headerlink" href="#scaling-considerations" title="Permanent link">&para;</a></h2>
+<h3 id="current-capacity">Current Capacity<a class="headerlink" href="#current-capacity" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Handles 100s of repos</li>
+<li>Processes unlimited PRs</li>
+<li>Limited by: GitHub API rate limits, Gemini API quota</li>
+</ul>
+<h3 id="if-scaling-needed">If Scaling Needed<a class="headerlink" href="#if-scaling-needed" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Increase Gemini API quota</li>
+<li>Use GitHub App instead of PAT (higher rate limits)</li>
+<li>Shard by repository (multiple bot instances)</li>
+<li>Cache PR status to reduce API calls</li>
+</ul>
+<h2 id="support-and-updates">Support and Updates<a class="headerlink" href="#support-and-updates" title="Permanent link">&para;</a></h2>
+<h3 id="getting-updates">Getting Updates<a class="headerlink" href="#getting-updates" title="Permanent link">&para;</a></h3>
+<p>Watch this repository for:
+- Bug fixes
+- New features
+- Improved prompts
+- Gemini model updates</p>
+<h3 id="contributing-improvements">Contributing Improvements<a class="headerlink" href="#contributing-improvements" title="Permanent link">&para;</a></h3>
+<p>Submit PRs with:
+- Better prompt templates
+- Enhanced error handling
+- New failure type detection
+- Improved logging</p>
+<hr />
+<p>🤖 <em>AI Engineering Maintenance Bot - Maintaining Vector Institute Repositories built by AI Engineering</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../setup/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Setup">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Setup
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../testing/" class="md-footer__link md-footer__link--next" aria-label="Next: Testing">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Testing
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  <div class="md-footer-vector">
+    <a href="https://vectorinstitute.ai" target="_blank" rel="noopener">
+      <img
+        src="../assets/vector-logo.svg"
+        alt="Vector Institute Logo"
+        height="24"
+      />
+    </a>
+  </div>
+   
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="404.html" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M492.5 69.8c-.2-.3-.4-.6-.8-.7-38.1-17.5-78.4-30-119.7-37.1-.4-.1-.8 0-1.1.1s-.6.4-.8.8c-5.5 9.9-10.5 20.2-14.9 30.6-44.6-6.8-89.9-6.8-134.4 0-4.5-10.5-9.5-20.7-15.1-30.6-.2-.3-.5-.6-.8-.8s-.7-.2-1.1-.2C162.5 39 122.2 51.5 84.1 69c-.3.1-.6.4-.8.7C7.1 183.5-13.8 294.6-3.6 404.2c0 .3.1.5.2.8s.3.4.5.6c44.4 32.9 94 58 146.8 74.2.4.1.8.1 1.1 0s.7-.4.9-.7c11.3-15.4 21.4-31.8 30-48.8.1-.2.2-.5.2-.8s0-.5-.1-.8-.2-.5-.4-.6-.4-.3-.7-.4c-15.8-6.1-31.2-13.4-45.9-21.9-.3-.2-.5-.4-.7-.6s-.3-.6-.3-.9 0-.6.2-.9.3-.5.6-.7c3.1-2.3 6.2-4.7 9.1-7.1.3-.2.6-.4.9-.4s.7 0 1 .1c96.2 43.9 200.4 43.9 295.5 0 .3-.1.7-.2 1-.2s.7.2.9.4c2.9 2.4 6 4.9 9.1 7.2.2.2.4.4.6.7s.2.6.2.9-.1.6-.3.9-.4.5-.6.6c-14.7 8.6-30 15.9-45.9 21.8-.2.1-.5.2-.7.4s-.3.4-.4.7-.1.5-.1.8.1.5.2.8c8.8 17 18.8 33.3 30 48.8.2.3.6.6.9.7s.8.1 1.1 0c52.9-16.2 102.6-41.3 147.1-74.2.2-.2.4-.4.5-.6s.2-.5.2-.8c12.3-126.8-20.5-236.9-86.9-334.5zm-302 267.7c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.4 59.2-52.8 59.2m195.4 0c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.2 59.2-52.8 59.2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/VectorInstitute/aieng-bot-maintain" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.annotate", "content.code.copy", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.top", "search.suggest", "search.highlight", "toc.follow"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>
