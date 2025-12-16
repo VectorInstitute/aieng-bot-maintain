@@ -1111,7 +1111,7 @@
 <li><strong>Fork a repository</strong> or use a test repository</li>
 <li><strong>Enable Dependabot</strong>: Settings → Security → Dependabot</li>
 <li><strong>Install workflows</strong>: Copy <code>.github/workflows/</code> to test repo</li>
-<li><strong>Add secrets</strong>: Set <code>GEMINI_API_KEY</code></li>
+<li><strong>Add secrets</strong>: Set <code>ANTHROPIC_API_KEY</code></li>
 <li><strong>Enable auto-merge</strong>: Settings → General → Pull Requests</li>
 </ol>
 <h2 id="test-cases">Test Cases<a class="headerlink" href="#test-cases" title="Permanent link">&para;</a></h2>
@@ -1196,9 +1196,9 @@
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Simulate failure detection</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>gh<span class="w"> </span>pr<span class="w"> </span>view<span class="w"> </span>PR_NUMBER<span class="w"> </span>--json<span class="w"> </span>statusCheckRollup
 </span></code></pre></div></p>
-<p><strong>Test Gemini API</strong>:
+<p><strong>Test Claude API</strong>:
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Verify API key works</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$GEMINI_API_KEY</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$ANTHROPIC_API_KEY</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span>https://generativelanguage.googleapis.com/v1beta/models
 </span></code></pre></div></p>
 <h2 id="integration-testing">Integration Testing<a class="headerlink" href="#integration-testing" title="Permanent link">&para;</a></h2>
@@ -1246,7 +1246,7 @@
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># Average time to fix</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># Success rate (fixes / attempts)</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># API call count</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># Cost per fix (Gemini API)</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># Cost per fix (Claude API)</span>
 </span></code></pre></div>
 <h3 id="load-testing">Load Testing<a class="headerlink" href="#load-testing" title="Permanent link">&para;</a></h3>
 <p><strong>Scenario</strong>: Multiple PRs simultaneously</p>

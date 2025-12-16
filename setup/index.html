@@ -468,10 +468,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-create-gemini-api-key" class="md-nav__link">
+  <a href="#1-create-claude-api-key" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Create Gemini API Key
+        1. Create Claude API Key
       
     </span>
   </a>
@@ -734,10 +734,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#gemini-api-errors" class="md-nav__link">
+  <a href="#claude-api-errors" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Gemini API Errors
+        Claude API Errors
       
     </span>
   </a>
@@ -972,10 +972,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-create-gemini-api-key" class="md-nav__link">
+  <a href="#1-create-claude-api-key" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Create Gemini API Key
+        1. Create Claude API Key
       
     </span>
   </a>
@@ -1238,10 +1238,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#gemini-api-errors" class="md-nav__link">
+  <a href="#claude-api-errors" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Gemini API Errors
+        Claude API Errors
       
     </span>
   </a>
@@ -1380,13 +1380,13 @@
 <ul>
 <li>[ ] Admin access to VectorInstitute organization</li>
 <li>[ ] Ability to create organization secrets</li>
-<li>[ ] Gemini API key</li>
+<li>[ ] Anthropic API key</li>
 <li>[ ] GitHub Personal Access Token with org-wide permissions</li>
 </ul>
 <h2 id="setup-steps">Setup Steps<a class="headerlink" href="#setup-steps" title="Permanent link">&para;</a></h2>
-<h3 id="1-create-gemini-api-key">1. Create Gemini API Key<a class="headerlink" href="#1-create-gemini-api-key" title="Permanent link">&para;</a></h3>
+<h3 id="1-create-claude-api-key">1. Create Claude API Key<a class="headerlink" href="#1-create-claude-api-key" title="Permanent link">&para;</a></h3>
 <ol>
-<li>Go to <a href="https://makersuite.google.com/app/apikey">Google AI Studio</a></li>
+<li>Go to <a href="https://console.anthropic.com/settings/keys">Anthropic Console</a></li>
 <li>Sign in with your Google account</li>
 <li>Click "Create API Key"</li>
 <li>Copy the key (starts with <code>AIza...</code>)</li>
@@ -1437,9 +1437,9 @@
 <li>Navigate to Settings → Secrets and variables → Actions</li>
 <li>Click "New repository secret"</li>
 </ol>
-<p><strong>Add GEMINI_API_KEY</strong>:
-- Name: <code>GEMINI_API_KEY</code>
-- Secret: [Paste your Gemini API key]
+<p><strong>Add ANTHROPIC_API_KEY</strong>:
+- Name: <code>ANTHROPIC_API_KEY</code>
+- Secret: [Paste your Anthropic API key]
 - Click "Add secret"</p>
 <p><strong>Add ORG_ACCESS_TOKEN</strong>:
 - Name: <code>ORG_ACCESS_TOKEN</code>
@@ -1539,7 +1539,7 @@
 - ❌ Never commit tokens to repository
 - ❌ Never share tokens via insecure channels</p>
 <h3 id="api-key-protection">API Key Protection<a class="headerlink" href="#api-key-protection" title="Permanent link">&para;</a></h3>
-<p>The <code>GEMINI_API_KEY</code> provides AI access:
+<p>The <code>ANTHROPIC_API_KEY</code> provides AI access:
 - ✅ Monitor API usage and costs
 - ✅ Set usage quotas in Google Cloud
 - ✅ Rotate key periodically
@@ -1572,13 +1572,13 @@
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>gh<span class="w"> </span>api<span class="w"> </span>repos/VectorInstitute/TEST_REPO/collaborators/USERNAME/permission
 </span></code></pre></div></p>
 <p><strong>Solution</strong>: Ensure token has write access and branch protection allows bot pushes</p>
-<h3 id="gemini-api-errors">Gemini API Errors<a class="headerlink" href="#gemini-api-errors" title="Permanent link">&para;</a></h3>
+<h3 id="claude-api-errors">Claude API Errors<a class="headerlink" href="#claude-api-errors" title="Permanent link">&para;</a></h3>
 <p><strong>Common issues</strong>:
 - Invalid API key
 - Quota exceeded
 - Model not available
 - Request too large</p>
-<p><strong>Check quota</strong>: Visit <a href="https://makersuite.google.com/app/apikey">Google AI Studio</a></p>
+<p><strong>Check quota</strong>: Visit <a href="https://console.anthropic.com/settings/keys">Anthropic Console</a></p>
 <p><strong>Solution</strong>: Verify key, check quota, consider upgrading plan</p>
 <h3 id="workflow-not-running">Workflow Not Running<a class="headerlink" href="#workflow-not-running" title="Permanent link">&para;</a></h3>
 <p><strong>Check</strong>:
