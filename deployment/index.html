@@ -1558,7 +1558,7 @@
 <h3 id="phase-2-testing-1-2-hours">Phase 2: Testing (1-2 hours)<a class="headerlink" href="#phase-2-testing-1-2-hours" title="Permanent link">&para;</a></h3>
 <ul>
 <li>[ ] <strong>2.1</strong>: Manual test run of monitor workflow
-  <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>gh<span class="w"> </span>workflow<span class="w"> </span>run<span class="w"> </span>monitor-org-dependabot.yml<span class="w"> </span><span class="se">\</span>
+  <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>gh<span class="w"> </span>workflow<span class="w"> </span>run<span class="w"> </span>monitor-org-bot-prs.yml<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span>--repo<span class="w"> </span>VectorInstitute/aieng-bot-maintain
 </span></code></pre></div></li>
 <li>[ ] <strong>2.2</strong>: Test fix workflow on specific PR
@@ -1599,7 +1599,7 @@
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Actions tab → Enable workflows</span>
 </span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
 </span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1"># 3. Test</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>gh<span class="w"> </span>workflow<span class="w"> </span>run<span class="w"> </span>monitor-org-dependabot.yml<span class="w"> </span>--repo<span class="w"> </span>VectorInstitute/aieng-bot-maintain
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>gh<span class="w"> </span>workflow<span class="w"> </span>run<span class="w"> </span>monitor-org-bot-prs.yml<span class="w"> </span>--repo<span class="w"> </span>VectorInstitute/aieng-bot-maintain
 </span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
 </span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="c1"># 4. Monitor</span>
 </span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="c1"># Check Actions tab for runs every 6 hours</span>
@@ -1634,10 +1634,10 @@
 <h3 id="daily-checks-first-2-weeks">Daily Checks (First 2 Weeks)<a class="headerlink" href="#daily-checks-first-2-weeks" title="Permanent link">&para;</a></h3>
 <p>Monitor these metrics:
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Check recent runs</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>gh<span class="w"> </span>run<span class="w"> </span>list<span class="w"> </span>--workflow<span class="o">=</span>monitor-org-dependabot.yml<span class="w"> </span>--limit<span class="w"> </span><span class="m">10</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>gh<span class="w"> </span>run<span class="w"> </span>list<span class="w"> </span>--workflow<span class="o">=</span>monitor-org-bot-prs.yml<span class="w"> </span>--limit<span class="w"> </span><span class="m">10</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Check for failures</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>gh<span class="w"> </span>run<span class="w"> </span>list<span class="w"> </span>--workflow<span class="o">=</span>monitor-org-dependabot.yml<span class="w"> </span>--status<span class="w"> </span>failure<span class="w"> </span>--limit<span class="w"> </span><span class="m">5</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>gh<span class="w"> </span>run<span class="w"> </span>list<span class="w"> </span>--workflow<span class="o">=</span>monitor-org-bot-prs.yml<span class="w"> </span>--status<span class="w"> </span>failure<span class="w"> </span>--limit<span class="w"> </span><span class="m">5</span>
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># View specific run</span>
 </span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>gh<span class="w"> </span>run<span class="w"> </span>view<span class="w"> </span>RUN_ID<span class="w"> </span>--log
@@ -1665,7 +1665,7 @@
 <h2 id="common-post-deployment-adjustments">Common Post-Deployment Adjustments<a class="headerlink" href="#common-post-deployment-adjustments" title="Permanent link">&para;</a></h2>
 <h3 id="adjust-scan-frequency">Adjust Scan Frequency<a class="headerlink" href="#adjust-scan-frequency" title="Permanent link">&para;</a></h3>
 <p>If you want more or less frequent scanning:</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># .github/workflows/monitor-org-dependabot.yml</span>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># .github/workflows/monitor-org-bot-prs.yml</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nt">on</span><span class="p">:</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">schedule</span><span class="p">:</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cron</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;0</span><span class="nv"> </span><span class="s">*/12</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*&#39;</span><span class="w">  </span><span class="c1"># Every 12 hours (less frequent)</span>
@@ -1674,7 +1674,7 @@
 </span></code></pre></div>
 <h3 id="exclude-specific-repositories">Exclude Specific Repositories<a class="headerlink" href="#exclude-specific-repositories" title="Permanent link">&para;</a></h3>
 <p>If certain repos need manual review:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># In monitor-org-dependabot.yml, after getting REPOS</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># In monitor-org-bot-prs.yml, after getting REPOS</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nv">REPOS</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$REPOS</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;critical-production-repo&quot;</span><span class="k">)</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nv">REPOS</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$REPOS</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;experimental-repo&quot;</span><span class="k">)</span>
 </span></code></pre></div>
@@ -1683,18 +1683,18 @@
 <p>Edit <code>.github/prompts/</code> templates to be more/less aggressive in fixes.</p>
 <h3 id="fine-tune-merge-criteria">Fine-Tune Merge Criteria<a class="headerlink" href="#fine-tune-merge-criteria" title="Permanent link">&para;</a></h3>
 <p>If auto-merging incorrectly:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># In monitor-org-dependabot.yml, adjust check logic</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># In monitor-org-bot-prs.yml, adjust check logic</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1"># Add filters for specific check names or PR titles</span>
 </span></code></pre></div>
 <h2 id="rollback-plan">Rollback Plan<a class="headerlink" href="#rollback-plan" title="Permanent link">&para;</a></h2>
 <p>If something goes wrong:</p>
 <h3 id="immediate-disable-30-seconds">Immediate Disable (30 seconds)<a class="headerlink" href="#immediate-disable-30-seconds" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Disable scheduled runs</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>gh<span class="w"> </span>workflow<span class="w"> </span>disable<span class="w"> </span>monitor-org-dependabot.yml<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>gh<span class="w"> </span>workflow<span class="w"> </span>disable<span class="w"> </span>monitor-org-bot-prs.yml<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span>--repo<span class="w"> </span>VectorInstitute/aieng-bot-maintain
 </span></code></pre></div>
 <p>Or via GitHub UI:
-1. Actions → Monitor Organization Dependabot PRs
+1. Actions → Monitor Organization Bot PRs
 2. Click "..." → Disable workflow</p>
 <h3 id="investigation-while-disabled">Investigation (While Disabled)<a class="headerlink" href="#investigation-while-disabled" title="Permanent link">&para;</a></h3>
 <ol>
@@ -1708,7 +1708,7 @@
 <li>Make necessary corrections (prompts, logic, secrets)</li>
 <li>Test manually first</li>
 <li>Re-enable workflow:
-   <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>gh<span class="w"> </span>workflow<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>monitor-org-dependabot.yml
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>gh<span class="w"> </span>workflow<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>monitor-org-bot-prs.yml
 </span></code></pre></div></li>
 </ol>
 <h3 id="full-rollback-if-needed">Full Rollback (If Needed)<a class="headerlink" href="#full-rollback-if-needed" title="Permanent link">&para;</a></h3>

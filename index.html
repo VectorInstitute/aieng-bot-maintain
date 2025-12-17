@@ -972,7 +972,7 @@
 
 
 <h1 id="aieng-bot-maintain-documentation">aieng-bot-maintain Documentation<a class="headerlink" href="#aieng-bot-maintain-documentation" title="Permanent link">&para;</a></h1>
-<p>Comprehensive documentation for the AI Engineering Maintenance Bot - an automated system that manages Dependabot PRs across all Vector Institute repositories.</p>
+<p>Comprehensive documentation for the AI Engineering Maintenance Bot - an automated system that manages bot PRs (Dependabot and pre-commit-ci) across all Vector Institute repositories.</p>
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong><a href="setup/">Setup Guide</a></strong> - Complete setup instructions including API keys, tokens, and configuration</li>
@@ -989,13 +989,13 @@
 <p>The bot operates from a single centralized repository and requires no installation in individual repositories. It:</p>
 <ul>
 <li>Monitors all VectorInstitute repositories every 6 hours</li>
-<li>Auto-merges Dependabot PRs when all checks pass</li>
+<li>Auto-merges bot PRs (Dependabot and pre-commit-ci) when all checks pass</li>
 <li>Automatically fixes common issues using Claude Agent SDK</li>
 <li>Posts transparent status updates on PRs</li>
 </ul>
 <h2 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
 <h3 id="organization-wide-monitoring">Organization-Wide Monitoring<a class="headerlink" href="#organization-wide-monitoring" title="Permanent link">&para;</a></h3>
-<p>Scans all repositories in the VectorInstitute organization for open Dependabot PRs and processes them automatically.</p>
+<p>Scans all repositories in the VectorInstitute organization for open bot PRs (Dependabot and pre-commit-ci) and processes them automatically.</p>
 <h3 id="intelligent-auto-merge">Intelligent Auto-Merge<a class="headerlink" href="#intelligent-auto-merge" title="Permanent link">&para;</a></h3>
 <p>Analyzes PR status checks and automatically approves and merges PRs when all tests pass.</p>
 <h3 id="ai-powered-auto-fix">AI-Powered Auto-Fix<a class="headerlink" href="#ai-powered-auto-fix" title="Permanent link">&para;</a></h3>
@@ -1024,7 +1024,7 @@
 </span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>│  VectorInstitute Org Repos │
 </span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>│                            │
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>│  Finds &amp; processes         │
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>│  Dependabot PRs            │
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>│  bot PRs                   │
 </span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>└────────────────────────────┘
 </span></code></pre></div>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
@@ -1035,7 +1035,7 @@
 </ul>
 <h3 id="workflows">Workflows<a class="headerlink" href="#workflows" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>monitor-org-dependabot.yml</code> - Scheduled workflow that scans organization</li>
+<li><code>monitor-org-bot-prs.yml</code> - Scheduled workflow that scans organization</li>
 <li><code>fix-remote-pr.yml</code> - On-demand workflow triggered for failing PRs</li>
 </ul>
 <h3 id="customization">Customization<a class="headerlink" href="#customization" title="Permanent link">&para;</a></h3>
@@ -1047,7 +1047,7 @@
 <h2 id="common-tasks">Common Tasks<a class="headerlink" href="#common-tasks" title="Permanent link">&para;</a></h2>
 <h3 id="manual-testing">Manual Testing<a class="headerlink" href="#manual-testing" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Test monitoring workflow</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>gh<span class="w"> </span>workflow<span class="w"> </span>run<span class="w"> </span>monitor-org-dependabot.yml
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>gh<span class="w"> </span>workflow<span class="w"> </span>run<span class="w"> </span>monitor-org-bot-prs.yml
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Test fix on specific PR</span>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>gh<span class="w"> </span>workflow<span class="w"> </span>run<span class="w"> </span>fix-remote-pr.yml<span class="w"> </span><span class="se">\</span>
@@ -1056,7 +1056,7 @@
 </span></code></pre></div>
 <h3 id="monitoring-bot-activity">Monitoring Bot Activity<a class="headerlink" href="#monitoring-bot-activity" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># View recent runs</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>gh<span class="w"> </span>run<span class="w"> </span>list<span class="w"> </span>--workflow<span class="o">=</span>monitor-org-dependabot.yml<span class="w"> </span>--limit<span class="w"> </span><span class="m">5</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>gh<span class="w"> </span>run<span class="w"> </span>list<span class="w"> </span>--workflow<span class="o">=</span>monitor-org-bot-prs.yml<span class="w"> </span>--limit<span class="w"> </span><span class="m">5</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># View specific run logs</span>
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>gh<span class="w"> </span>run<span class="w"> </span>view<span class="w"> </span>RUN_ID<span class="w"> </span>--log
