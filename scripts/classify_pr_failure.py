@@ -191,8 +191,14 @@ Branch: {pr_context.head_ref} → {pr_context.base_ref}
                 messages=[{"role": "user", "content": prompt}],
             )
 
-            # Extract JSON from response
-            response_text = response.content[0].text.strip()
+            # Extract JSON from response (handle union type)
+            first_block = response.content[0]
+            if hasattr(first_block, "text"):
+                response_text = first_block.text.strip()
+            else:
+                raise ValueError(
+                    f"Expected TextBlock in response, got {type(first_block).__name__}"
+                )
 
             # Try to parse JSON (handle markdown code blocks if present)
             if response_text.startswith("```"):
