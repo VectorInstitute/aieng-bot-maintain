@@ -6,6 +6,7 @@ import click
 from rich.console import Console
 from rich.text import Text
 
+from ..config import get_model_name
 from ..utils.logging import get_console
 from .commands.classify import classify
 from .commands.fix import fix
@@ -24,20 +25,33 @@ def print_banner(console: Console) -> None:
     if os.environ.get("AIENG_BOT_NO_BANNER"):
         return
 
-    banner = Text()
-    banner.append("  ╔══════════════════════════════════════════╗\n", style="bold cyan")
-    banner.append("  ║                                          ║\n", style="bold cyan")
-    banner.append("  ║   ", style="bold cyan")
-    banner.append("🤖 AI Engineering Bot", style="bold white")
-    banner.append("                  ║\n", style="bold cyan")
-    banner.append("  ║   ", style="bold cyan")
-    banner.append("Automated PR Maintenance", style="cyan")
-    banner.append("               ║\n", style="bold cyan")
-    banner.append("  ║                                          ║\n", style="bold cyan")
-    banner.append("  ╚══════════════════════════════════════════╝", style="bold cyan")
+    version_str = get_version()
+    model_name = get_model_name()
 
-    console.print(banner)
-    console.print("  Vector Institute AI Engineering\n", style="dim italic")
+    # Sleek robot ASCII art with antennae
+    line0 = Text()
+    line0.append("  ◦   ◦  ", style="#EB088A bold")
+    line0.append("   aieng-bot ", style="white bold")
+    line0.append(f"v{version_str}", style="bright_black")
+
+    line1 = Text()
+    line1.append(" ┌─────┐ ", style="#EB088A bold")
+
+    line2 = Text()
+    line2.append(" │ ◉ ◉ │ ", style="#EB088A bold")
+    line2.append("   ", style="")
+    line2.append(model_name, style="cyan")
+
+    line3 = Text()
+    line3.append(" └──‿──┘ ", style="#EB088A bold")
+    line3.append("   Vector Institute AI Engineering", style="bright_black")
+
+    console.print()
+    console.print(line0)
+    console.print(line1)
+    console.print(line2)
+    console.print(line3)
+    console.print()
 
 
 def version_callback(ctx: click.Context, param: click.Parameter, value: bool) -> None:
