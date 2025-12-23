@@ -15,7 +15,7 @@ def test_get_version_installed():
         mock_version.return_value = "1.2.3"
         result = get_version()
         assert result == "1.2.3"
-        mock_version.assert_called_once_with("aieng-bot-maintain")
+        mock_version.assert_called_once_with("aieng-bot")
 
 
 def test_get_version_not_installed():
